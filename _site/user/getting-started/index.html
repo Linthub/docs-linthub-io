@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Linthub: Getting started</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,800' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="Linthub Updates" href="http://docs.linthub.io/feed.updates.xml">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/site.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="alternate" type="application/atom+xml" href="/blog.xml">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-58747738-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="top">
+      <div class="wrapper">
+        <a href="http://linthub.io/">
+  <div id="home">
+    <h1>Linthub</h1>
+  </div>
+</a>
+
+        <ul id="navigation">
+          <li><a href="http://docs.linthub.io">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            <h2 class="title">Getting started</h2>
+            <h3>Linthub Overview</h3>
+
+<p>Linthub will check the quality of pull requests by static code analysis. All (potential) problems will be commented on as line comments, allowing the submitter to review and update the pull request. This will increase code quality and save time to the repository owner.</p>
+
+<h3>Step one: Sign in</h3>
+
+<p>To get started with Linthub, sign in with your GitHub account. Go to <a href="https://linthub.io">Linthub</a> and follow the Sign In link at the top.</p>
+
+<p>Note that for private repositories, the <a href="https://github.com/linthubot/">Linthubot</a> should be added to your team with read-only access.</p>
+
+<p>While signing in, GitHub will ask you for a set of access permissions on our
+behalf. We've <a href="/user/github-oauth-scopes">outlined them and their use in more detail</a>.</p>
+
+<h3>Step two: Activate GitHub Webhook</h3>
+
+<p>Once you're signed in, and we've initially synchronized your repositories from
+GitHub, go to your <a href="https://linthub.io/profile">profile page for open source</a>.</p>
+
+<p>You'll see all the organizations you're a member of and all the repositories you
+have access to. The ones you have administrative access to are the ones you can
+enable the service hook for.</p>
+
+<p>Flip switch to on for all repositories you'd like to enable.</p>
+
+<h3>Step three: Add .linthub.yml file to your repository</h3>
+
+<p>Linthub can be configured using the .linthub.yml configuration file.</p>
+
+<p>If <code>.linthub.yml</code> is not in the repository, is misspelled or is not <a href="http://yaml-online-parser.appspot.com/">valid
+YAML</a>, Linthub will ignore it,
+and use the defaults.</p>
+
+<h3>Step four: Trigger Your First Build With a Git Push</h3>
+
+<p>Once GitHub hook is set up, push your commit that adds .linthub.yml to your repository. That should add a build into one of the queues on <a href="https://linthub.io">Linthub</a> and your build will start as soon as one worker for your language is available.</p>
+
+<p>To start a build, perform one of the following:</p>
+
+<ol>
+<li>Commit and push something to your repository</li>
+<li>Go to your repository's settings page, click on "Webhooks &amp; Services" on the left menu, choose "Linthub" in the "Services",  and use the "Test service" button.</li>
+</ol>
+
+
+<p>Please note that <strong>you cannot trigger your first build using Test Hook button</strong>. It has to be triggered by a push to your repository.</p>
+
+<h3>Step five: Tweaking your configuration</h3>
+
+<p>Chances are, your project requires some customization to the build process.</p>
+
+<p>After making some changes to the <code>.linthub.yml</code>, don't forget to check that it is <a href="http://yaml-online-parser.appspot.com/">valid YAML</a>.</p>
+
+<h3>Step seven: We are here to help!</h3>
+
+<p>For any kind of questions feel free to join our IRC channel <a href="irc://chat.freenode.net/%23linthub">#linthub on chat.freenode.net</a>. We're there to help :)</p>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Guides</h2>
+            <ul>
+              <li><a href="/user/getting-started/">Getting started</a></li>
+            </ul>
+
+
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="https://twitter.com/linthub">Twitter</a></li>
+              <li><a href="http://github.com/linthub">GitHub</a></li>
+            </ul>
+
+            <h2>Contributing</h2>
+            <p>This documentation site is open source.
+              The README in our <a href="https://github.com/linthub/docs-linthub-io">Git repository</a> explains how to contribute.</p>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+
+
+    <footer>
+      <div class="wrapper">
+        <div class="large-6 columns right">
+          <div id="footer-nav">
+              <p>Made with <b>&gt;3</b> by <a href="http://twitter.com/dutchcoders" title="Dutch Coders">Dutch Coders</a>. Based on Travis CI documentation repository.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+

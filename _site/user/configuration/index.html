@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Linthub: Configuration</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,800' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="Linthub Updates" href="http://docs.linthub.io/feed.updates.xml">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/site.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="alternate" type="application/atom+xml" href="/blog.xml">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-58747738-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="top">
+      <div class="wrapper">
+        <a href="http://linthub.io/">
+  <div id="home">
+    <h1>Linthub</h1>
+  </div>
+</a>
+
+        <ul id="navigation">
+          <li><a href="http://docs.linthub.io">Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            <h2 class="title">Configuration</h2>
+            <p>Linthub can be configured which analyzers to use. Each analyzer can be configured individually.</p>
+
+<div id="toc"></div>
+
+
+<h2>Platform</h2>
+
+<pre><code>platform: linux # | osx
+</code></pre>
+
+<h2>Build</h2>
+
+<pre><code>build:
+- make clean
+- make
+</code></pre>
+
+<h2>Test</h2>
+
+<pre><code>test:
+- ./hello
+</code></pre>
+
+<h2>Analyzers</h2>
+
+<pre><code>analyzers:
+</code></pre>
+
+<h3>C++</h3>
+
+<h4>Cpplint</h4>
+
+<pre><code> - cpplint: true
+   include: ["*.cpp", "*.h", "*.hpp", "*.c"]
+   path: ./src/
+   filters:
+   - -whitespace
+   - +whitespace/braces
+   style: google # webkit | google
+</code></pre>
+
+<h3>Go</h3>
+
+<h4>Golint</h4>
+
+<pre><code> - golint: true
+   path: ./transfersh-server/
+   min_confidence: 0.8
+</code></pre>
+
+<h4>Govet</h4>
+
+<pre><code> - govet: true
+   path: ./transfersh-server/
+</code></pre>
+
+<h3>Javascript</h3>
+
+<h4>JSLint</h4>
+
+<pre><code> - jslint: true
+   params:
+   - evil
+</code></pre>
+
+<h4>ESLint</h4>
+
+<pre><code> - eshint: true
+   params: test2
+</code></pre>
+
+<h3>JSHint</h3>
+
+<pre><code> - jshint: true
+</code></pre>
+
+<h3>Coffeescript</h3>
+
+<h4>Coffeelint</h4>
+
+<pre><code> - coffeelint: true
+</code></pre>
+
+<h3>Dart</h3>
+
+<h4>Dartanalyzer</h4>
+
+<pre><code> - dartanalyzer: true
+</code></pre>
+
+<h3>ReactJS</h3>
+
+<h4>JSXHint</h4>
+
+<pre><code> - jsxhint: true
+</code></pre>
+
+<h3>Scala</h3>
+
+<pre><code> - scalastyle: true
+</code></pre>
+
+<h3>Ruby</h3>
+
+<pre><code> - rubocop: true
+   targets: ["."]
+</code></pre>
+
+<h3>CSS</h3>
+
+<h4>Csslint</h4>
+
+<pre><code> - csslint: true
+   errors:
+   warnings:
+   ignore:
+   exclude-list:
+</code></pre>
+
+<h3>PHP</h3>
+
+<h4>PHPCS</h4>
+
+<pre><code> - phpcs: true
+</code></pre>
+
+<h3>Shell</h3>
+
+<h4>Shellcheck</h4>
+
+<pre><code> - shellcheck: true
+   interpreter: zsh
+</code></pre>
+
+<h3>Ojbective-C</h3>
+
+<h4>OCStyle</h4>
+
+<pre><code> - ocstyle: true
+   patterns: ["*.cpp", "*.h", "*.hpp", "*.c"]
+   allowed: ["*.cpp", "*.h", "*.hpp", "*.c", "*.m"]
+   include: ["*.cpp", "*.h", "*.hpp", "*.c"]
+</code></pre>
+
+<h3>CMake</h3>
+
+<h4>Polysquare CMake</h4>
+
+<pre><code> - polysquare-cmake: true
+   allowed: ["CMakeLists.txt"]
+</code></pre>
+
+<h3>Python</h3>
+
+<h4>Flake8</h4>
+
+<p>Flake8 is a wrapper around these tools:</p>
+
+<ul>
+<li>PyFlakes</li>
+<li>pep8</li>
+<li>Ned Batchelder’s McCabe script</li>
+</ul>
+
+
+<p>Reference: <a href="http://flake8.readthedocs.org/en/2.3.0/">flake8</a></p>
+
+<pre><code> - flake8: true
+</code></pre>
+
+<h3>Java</h3>
+
+<h4>PMD</h4>
+
+<pre><code> - pmd: true
+</code></pre>
+
+<h4>Checkstyle</h4>
+
+<pre><code> - checkstyle: true
+   style: google # | sun
+</code></pre>
+
+<h3>Markdown</h3>
+
+<h4>Markdownlint</h4>
+
+<pre><code> - markdownlint: true
+</code></pre>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Guides</h2>
+            <ul>
+              <li><a href="/user/getting-started/">Getting started</a></li>
+            </ul>
+
+
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="https://twitter.com/linthub">Twitter</a></li>
+              <li><a href="http://github.com/linthub">GitHub</a></li>
+            </ul>
+
+            <h2>Contributing</h2>
+            <p>This documentation site is open source.
+              The README in our <a href="https://github.com/linthub/docs-linthub-io">Git repository</a> explains how to contribute.</p>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+
+
+    <footer>
+      <div class="wrapper">
+        <div class="large-6 columns right">
+          <div id="footer-nav">
+              <p>Made with <b>&gt;3</b> by <a href="http://twitter.com/dutchcoders" title="Dutch Coders">Dutch Coders</a>. Based on Travis CI documentation repository.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
