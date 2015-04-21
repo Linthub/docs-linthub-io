@@ -4,17 +4,19 @@ layout: en
 permalink: /user/configuration/
 ---
 
-Linthub can be configured which analyzers to use. Each analyzer can be configured individually.
+Linthub reads its configuration from the .linthub.yml file. .linthub.yml has a list of instructions that specify a platform, build commands, test commands and each analyzer's configuration parameters. Each analyzer will be run in its own environment (container) after all build and test commands, therefore possible side effects from analyzers will not affect one another.
 
 <div id="toc"></div>
 
 ## Platform
+Target platform
 
 ```
 platform: linux # | osx
 ```
 
 ## Build
+Build commands
 
 ```
 build:
@@ -23,12 +25,15 @@ build:
 ```
 
 ## Test
+Test commands
+
 ```
 test:
 - ./hello
 ```
 
 ## Analyzers
+Configuration section for each analyzer starts with its name, followed by true/false after a colon. For example, "cpplint: true" indicates that cpplint should be enabled. The configuration parameters on the lines below contain analyzer-specific configs until the next configuration section.
 
 ```
 analyzers:
